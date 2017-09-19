@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -34,9 +34,10 @@
     </div>
     
     <script src="/public/assets/jquery/jquery.min.js"></script>
+    <script src="/public/assets/jquery-cookie/jquery.cookie.js"></script>
     <script src="/public/assets/bootstrap/js/bootstrap.min.js"></script>
     <script>
-    console.log($("#formlogin").serialize());
+    // console.log($("#formlogin").serialize());
      $("#btnform").click(function(){
         $.ajax({
             type:'post',
@@ -44,19 +45,16 @@
             data:$("#formlogin").serialize(),
             dataType:'json',
             success:function(data){
-                // console.log(data);
-                if(data.code===200){
-                    location.href='/main/index';
-                }
+               // console.log(data);
+               if(data.code==200){
+                // 记录获取cookie数据
+                $.cookie("loginInfo",JSON.stringify(data.result),{path:'/'});
+                location.href='/main/index';
+               }
             }
         })
-
           return false;
-
      })
-
-
-
 
     </script>
 </body>
