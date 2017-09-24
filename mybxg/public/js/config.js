@@ -7,13 +7,17 @@ require.config({
       bootstrap: 'bootstrap/js/bootstrap',
       datepicker: 'bootstrap-datepicker/js/bootstrap-datepicker.min',
       language: 'bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
-       validate:'validate/jquery-validate.min',
+      validate:'validate/jquery-validate.min',
       form:'jquery-form/jquery.form',
+      uploadify : 'uploadify/jquery.uploadify',
+      region : 'jquery-region/jquery.region',
+      ckeditor: 'ckeditor/ckeditor',
       utils: '../js/utils',
       common : '../js/common',
       login : '../js/login',
       teacherList: '../js/teacher_list',
-      teacherAdd:'../js/teacher_add'
+      teacherAdd:'../js/teacher_add',
+      settings:'../js/settings'
      
     },
     shim : {
@@ -25,6 +29,12 @@ require.config({
       },
       validate : {
         deps :['jquery']
+      },
+      uploadify : {
+        deps : ['jquery']
+      },
+      ckeditor : {
+        exports: 'CKEDITOR'
       }
     }
 })
