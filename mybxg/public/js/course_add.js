@@ -8,7 +8,10 @@ define(['jquery','utils','form'],function($,utils){
         url:'/api/course/create',
         dataType:'json',
         success:function(data){
-          console.log(data)
+          // console.log(data)
+          if(data.code==200){
+            location.href='/course/basic?cs_id='+data.result.cs_id;
+          }
         }
      })
   })
