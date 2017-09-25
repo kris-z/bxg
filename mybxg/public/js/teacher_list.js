@@ -1,4 +1,7 @@
-define(['jquery','template','bootstrap'],function($,template){
+define(['jquery','template','utils','bootstrap'],function($,template,utils){
+
+  // 导航菜单选中高亮显示
+   utils.setMenu(location.pathname);
   $.ajax({
     type:'get',
     url:'/api/teacher',
