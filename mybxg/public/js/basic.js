@@ -28,7 +28,9 @@ define(['jquery','template','utils','ckeditor','validate','form'],function($,tem
           data:{cg_id:pid},
           dataType:'json',
           success:function(data){
-            var tpl = '<option value="">请选择二级分类...</option>{{each list}}<option value="{{$value.cg_id}}">{{$value.cg_name}}</option>{{/each}}';
+            var tpl = '<option value="">请选择二级分类...</option>'
+            +'{{each list}}'
+            +'<option value="{{$value.cg_id}}">{{$value.cg_name}}</option>{{/each}}';
             var html=template.render(tpl,{list: data.result});
             $("#secondType").html(html);
           }
@@ -58,7 +60,12 @@ define(['jquery','template','utils','ckeditor','validate','form'],function($,tem
             dataType:'json',
             success:function(data){
               console.log(data);
-              location.href="/course/picture?cs_id="+data.result.cs_id;
+                 if(flag){
+                   location.href="/course/picture?flag=1&cs_id="+data.result.cs_id;
+                 }else{
+                   location.href="/course/picture?cs_id="+data.result.cs_id;
+                }
+            
             }
 
           })
